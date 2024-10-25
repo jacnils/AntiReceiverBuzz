@@ -1,0 +1,16 @@
+#!/bin/sh
+
+main() {
+	EMPTY_FILE_PATH="$(cd "$(dirname "$0")" && pwd)/../Resources/empty.wav"
+
+	[ ! -x "$(command -v afplay)" ] && exit 1
+	[ ! -f "$EMPTY_FILE_PATH" ] && exit 1
+
+	while true; do 
+		afplay "$EMPTY_FILE_PATH"
+	done
+
+	exit 0
+}
+
+main &
