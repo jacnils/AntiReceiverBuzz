@@ -1,13 +1,15 @@
 #!/bin/sh
 
+[ ! -x "$(command -v afplay)" ] && exit 1
+[ ! -f "$EMPTY_FILE_PATH" ] && exit 1
+
+[ -z "$EMPTY_FILE_PATH" ] && EMPTY_FILE_PATH="$(cd "$(dirname "$0")" && pwd)/../Resources/empty.wav"
+[ -z "$DELAY"] && DELAY=5
+
 main() {
-	EMPTY_FILE_PATH="$(cd "$(dirname "$0")" && pwd)/../Resources/empty.wav"
-
-	[ ! -x "$(command -v afplay)" ] && exit 1
-	[ ! -f "$EMPTY_FILE_PATH" ] && exit 1
-
 	while true; do 
 		afplay "$EMPTY_FILE_PATH"
+		sleep $DELAY
 	done
 
 	exit 0
