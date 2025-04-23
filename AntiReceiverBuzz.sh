@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # AntiReceiverBuzz - Linux/BSD version
 # For the macOS version, see AntiReceiverBuzz.app
 
-if [ "$1" == "--global" ]; then
+if [ "$1" = "--global" ]; then
 	[ -z "$EMPTY_FILE_PATH" ] && EMPTY_FILE_PATH=/usr/share/AntiReceiverBuzz/empty.wav
 else
 	[ -z "$EMPTY_FILE_PATH" ] && EMPTY_FILE_PATH=$HOME/.local/share/AntiReceiverBuzz/empty.wav
