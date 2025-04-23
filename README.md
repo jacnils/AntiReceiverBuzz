@@ -20,6 +20,8 @@ It also works on Arch Linux. For some reason that I don't know, Gentoo doesn't s
 
 **For Linux and BSD, use the .sh script. Move it wherever you like and add it to .zprofile or .bashrc.**
 
+**For Windows, there is as far as I can tell no real need for this.**
+
 ## Where is the source code?
 
 This is just a script, there is no source code to speak of.

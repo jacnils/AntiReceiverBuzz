@@ -1,0 +1,13 @@
+[Unit]
+Description=Service that plays an empty sound file ensuring the sound system is enabled
+After=sound.target
+
+[Service]
+Type=simple
+ExecStart=AntiReceiverBuzz.sh --global
+ExecStop=/bin/kill -s SIGTERM $MAINPID
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

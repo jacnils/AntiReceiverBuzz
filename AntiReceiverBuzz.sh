@@ -2,7 +2,12 @@
 # AntiReceiverBuzz - Linux/BSD version
 # For the macOS version, see AntiReceiverBuzz.app
 
-[ -z "$EMPTY_FILE_PATH" ] && EMPTY_FILE_PATH=$HOME/.local/share/empty.wav
+if [ "$1" == "--global" ]; then
+	[ -z "$EMPTY_FILE_PATH" ] && EMPTY_FILE_PATH=/usr/share/AntiReceiverBuzz/empty.wav
+else
+	[ -z "$EMPTY_FILE_PATH" ] && EMPTY_FILE_PATH=$HOME/.local/share/AntiReceiverBuzz/empty.wav
+fi
+
 [ -z "$DELAY" ] && DELAY=5
 
 download_wav() {
@@ -17,7 +22,7 @@ download_wav() {
 
 main() {
 	while true; do
-		aplay "$EMPTY_FILE_PATH"
+		aplay "$EMPTY_FILE_PATH" 2>/dev/null
 		sleep $DELAY
 	done
 
